@@ -49,7 +49,7 @@
       <div><label>Self Gasolio</label><input type="number" step="0.001" id="p_gas_self" value="2.452" oninput="calcola()"></div>
       <div><label>Self E-Diesel</label><input type="number" step="0.001" id="p_edies_self" value="2.652" oninput="calcola()"></div>
       <div><label>AdBlue</label><input type="number" step="0.001" id="p_adblue" value="1.490" oninput="calcola()"></div>
-      <div><label>Servito SSP (Benz.)</label><input type="number" step="0.001" id="p_ssp_serv" value="2.522" oninput="calcola()"></div>
+      <div><label>Servito Benzina (SSP)</label><input type="number" step="0.001" id="p_ssp_serv" value="2.522" oninput="calcola()"></div>
       <div><label>Servito Gasolio</label><input type="number" step="0.001" id="p_gas_serv" value="2.752" oninput="calcola()"></div>
       <div><label>Servito E-Diesel</label><input type="number" step="0.001" id="p_edies_serv" value="2.952" oninput="calcola()"></div>
       <div><label>GPL</label><input type="number" step="0.001" id="p_gpl" value="0.762" oninput="calcola()"></div>
@@ -60,9 +60,9 @@
   <div class="card">
     <h3>2. Tamburelle Piazzale</h3>
 
-    <!-- ISOLE 1 e 2 (SERVITO) -->
+    <!-- ISOLA 1-2 (SERVITO) -->
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 1-2 | Gasolio</span><span class="badge-serv">SERVITO Utf 1</span></div>
+      <div class="pompa-header"><span>Servito (Isola 1-2) — Gasolio</span><span class="badge-serv">Utf 1</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p1_ini" value="2521808" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p1_fin" value="2521801" oninput="calcola()"></div>
@@ -71,7 +71,7 @@
     </div>
 
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 1-2 | E-Diesel</span><span class="badge-serv">SERVITO Utf 1</span></div>
+      <div class="pompa-header"><span>Servito (Isola 1-2) — E-Diesel</span><span class="badge-serv">Utf 1</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p2_ini" value="207178" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p2_fin" value="207178" oninput="calcola()"></div>
@@ -80,7 +80,7 @@
     </div>
 
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 1-2 | SSP Benzina</span><span class="badge-serv">SERVITO Utf 1</span></div>
+      <div class="pompa-header"><span>Servito (Isola 1-2) — Benzina (SSP)</span><span class="badge-serv">Utf 1</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p3_ini" value="1233683" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p3_fin" value="1233532" oninput="calcola()"></div>
@@ -88,9 +88,9 @@
       <div class="litri-info" id="lt_p3">Litri: 0</div>
     </div>
 
-    <!-- ISOLE 5 e 6 (SERVITO) -->
+    <!-- ISOLA 5-6 (SERVITO) -->
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 5-6 | Gasolio</span><span class="badge-serv">SERVITO Utf 2</span></div>
+      <div class="pompa-header"><span>Servito (Isola 5-6) — Gasolio</span><span class="badge-serv">Utf 2</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p5_ini" value="9501488" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p5_fin" value="9501283" oninput="calcola()"></div>
@@ -99,7 +99,7 @@
     </div>
 
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 5-6 | E-Diesel</span><span class="badge-serv">SERVITO Utf 2</span></div>
+      <div class="pompa-header"><span>Servito (Isola 5-6) — E-Diesel</span><span class="badge-serv">Utf 2</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p6_ini" value="701104" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p6_fin" value="701104" oninput="calcola()"></div>
@@ -108,7 +108,7 @@
     </div>
 
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 5-6 | SSP Benzina</span><span class="badge-serv">SERVITO Utf 2</span></div>
+      <div class="pompa-header"><span>Servito (Isola 5-6) — Benzina (SSP)</span><span class="badge-serv">Utf 2</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p7_ini" value="4577669" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p7_fin" value="4576936" oninput="calcola()"></div>
@@ -116,9 +116,9 @@
       <div class="litri-info" id="lt_p7">Litri: 0</div>
     </div>
 
-    <!-- ISOLE 3 e 4 (SELF) -->
+    <!-- ISOLA 3-4 (SELF) -->
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 3-4 | Gasolio</span><span class="badge-self">SELF Utf 3</span></div>
+      <div class="pompa-header"><span>Self (Isola 3-4) — Gasolio</span><span class="badge-self">Utf 3</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p8_ini" value="7680701" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p8_fin" value="7680336" oninput="calcola()"></div>
@@ -127,7 +127,7 @@
     </div>
 
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 3-4 | E-Diesel</span><span class="badge-self">SELF Utf 3</span></div>
+      <div class="pompa-header"><span>Self (Isola 3-4) — E-Diesel</span><span class="badge-self">Utf 3</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p9_ini" value="209252" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p9_fin" value="209252" oninput="calcola()"></div>
@@ -136,7 +136,7 @@
     </div>
 
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 3-4 | SSP Benzina</span><span class="badge-self">SELF Utf 3</span></div>
+      <div class="pompa-header"><span>Self (Isola 3-4) — Benzina (SSP)</span><span class="badge-self">Utf 3</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p10_ini" value="2656774" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p10_fin" value="2656378" oninput="calcola()"></div>
@@ -144,9 +144,9 @@
       <div class="litri-info" id="lt_p10">Litri: 0</div>
     </div>
 
-    <!-- ISOLE 7 e 8 (SELF) -->
+    <!-- ISOLA 7-8 (SELF) -->
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 7-8 | Gasolio</span><span class="badge-self">SELF Utf 4</span></div>
+      <div class="pompa-header"><span>Self (Isola 7-8) — Gasolio</span><span class="badge-self">Utf 4</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p11_ini" value="12202927" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p11_fin" value="12202248" oninput="calcola()"></div>
@@ -155,7 +155,7 @@
     </div>
 
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 7-8 | E-Diesel</span><span class="badge-self">SELF Utf 4</span></div>
+      <div class="pompa-header"><span>Self (Isola 7-8) — E-Diesel</span><span class="badge-self">Utf 4</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p12_ini" value="962070" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p12_fin" value="962070" oninput="calcola()"></div>
@@ -164,7 +164,7 @@
     </div>
 
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 7-8 | SSP Benzina</span><span class="badge-self">SELF Utf 4</span></div>
+      <div class="pompa-header"><span>Self (Isola 7-8) — Benzina (SSP)</span><span class="badge-self">Utf 4</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p13_ini" value="4170637" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p13_fin" value="4169752" oninput="calcola()"></div>
@@ -172,9 +172,9 @@
       <div class="litri-info" id="lt_p13">Litri: 0</div>
     </div>
 
-    <!-- ISOLE 9 e 10 / 11 e 12 (SELF) -->
+    <!-- ISOLA 9-10 & 11-12 (SELF) -->
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 9-10 | Gasolio TR</span><span class="badge-self">SELF Utf 5</span></div>
+      <div class="pompa-header"><span>Self (Isola 9-10) — Gasolio TR</span><span class="badge-self">Utf 5</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p14_ini" value="2935323" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p14_fin" value="2935323" oninput="calcola()"></div>
@@ -183,7 +183,7 @@
     </div>
 
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 11-12 | E-Diesel</span><span class="badge-self">SELF Utf 5</span></div>
+      <div class="pompa-header"><span>Self (Isola 11-12) — E-Diesel</span><span class="badge-self">Utf 5</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p15_ini" value="377686" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p15_fin" value="377686" oninput="calcola()"></div>
@@ -192,7 +192,7 @@
     </div>
 
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 11-12 | SSP Benzina</span><span class="badge-self">SELF Utf 5</span></div>
+      <div class="pompa-header"><span>Self (Isola 11-12) — Benzina (SSP)</span><span class="badge-self">Utf 5</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p16_ini" value="802514" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p16_fin" value="802514" oninput="calcola()"></div>
@@ -200,9 +200,9 @@
       <div class="litri-info" id="lt_p16">Litri: 0</div>
     </div>
 
-    <!-- PESANTE TR 13-14 & 19-20 -->
+    <!-- ISOLA 13-14 & 19-20 (PESANTE / SELF) -->
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 13-14 | Gasolio TR</span><span class="badge-self">SELF Utf 6</span></div>
+      <div class="pompa-header"><span>Self (Isola 13-14) — Gasolio TR (Linea 1)</span><span class="badge-self">Utf 6</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p17_ini" value="2954196" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p17_fin" value="2954196" oninput="calcola()"></div>
@@ -211,7 +211,7 @@
     </div>
 
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 13-14 | Gasolio TR</span><span class="badge-self">SELF Utf 7</span></div>
+      <div class="pompa-header"><span>Self (Isola 13-14) — Gasolio TR (Linea 2)</span><span class="badge-self">Utf 7</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p18_ini" value="6661204" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p18_fin" value="6661204" oninput="calcola()"></div>
@@ -220,7 +220,7 @@
     </div>
 
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 19-20 | E-Diesel</span><span class="badge-self">SELF Utf 6</span></div>
+      <div class="pompa-header"><span>Self (Isola 19-20) — E-Diesel</span><span class="badge-self">Utf 6</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p19_ini" value="296232" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p19_fin" value="296232" oninput="calcola()"></div>
@@ -229,7 +229,7 @@
     </div>
 
     <div class="pompa-row">
-      <div class="pompa-header"><span>Erogatori 19-20 | SSP Benzina</span><span class="badge-self">SELF Utf 6</span></div>
+      <div class="pompa-header"><span>Self (Isola 19-20) — Benzina (SSP)</span><span class="badge-self">Utf 6</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p20_ini" value="676836" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p20_fin" value="676836" oninput="calcola()"></div>
@@ -237,9 +237,9 @@
       <div class="litri-info" id="lt_p20">Litri: 0</div>
     </div>
 
-    <!-- GPL 1 e 2 -->
+    <!-- GPL 15-16 -->
     <div class="pompa-row">
-      <div class="pompa-header"><span>GPL 1</span><span class="badge-serv">GPL Utf 1</span></div>
+      <div class="pompa-header"><span>GPL (Isola 15-16) — Erogatore 1</span><span class="badge-serv">Utf 1</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p21_ini" value="8069006" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p21_fin" value="8068823" oninput="calcola()"></div>
@@ -248,7 +248,7 @@
     </div>
 
     <div class="pompa-row">
-      <div class="pompa-header"><span>GPL 2</span><span class="badge-serv">GPL Utf 2</span></div>
+      <div class="pompa-header"><span>GPL (Isola 15-16) — Erogatore 2</span><span class="badge-serv">Utf 2</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p22_ini" value="3302441" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p22_fin" value="3301316" oninput="calcola()"></div>
@@ -256,9 +256,9 @@
       <div class="litri-info" id="lt_p22">Litri: 0</div>
     </div>
 
-    <!-- ADBLUE -->
+    <!-- ADBLUE 17-18 -->
     <div class="pompa-row">
-      <div class="pompa-header"><span>AdBlue 17-18</span><span class="badge-self">ADBLUE</span></div>
+      <div class="pompa-header"><span>AdBlue (Isola 17-18)</span><span class="badge-self">ADBLUE</span></div>
       <div class="inputs-flex">
         <div><label>Iniziale</label><input type="number" id="p23_ini" value="135814" oninput="calcola()"></div>
         <div><label>Finale</label><input type="number" id="p23_fin" value="135814" oninput="calcola()"></div>
@@ -275,10 +275,10 @@
         <tr><th>Tipologia</th><th>Litri</th><th>Euro (€)</th></tr>
       </thead>
       <tbody>
-        <tr><td>SSP Self</td><td id="r_ssp_self_lt">0</td><td id="r_ssp_self_eu">0.00</td></tr>
+        <tr><td>Benzina (SSP) Self</td><td id="r_ssp_self_lt">0</td><td id="r_ssp_self_eu">0.00</td></tr>
         <tr><td>Gasolio Self</td><td id="r_gas_self_lt">0</td><td id="r_gas_self_eu">0.00</td></tr>
         <tr><td>E-Diesel Self</td><td id="r_edies_self_lt">0</td><td id="r_edies_self_eu">0.00</td></tr>
-        <tr><td>SSP Servito</td><td id="r_ssp_serv_lt">0</td><td id="r_ssp_serv_eu">0.00</td></tr>
+        <tr><td>Benzina (SSP) Servito</td><td id="r_ssp_serv_lt">0</td><td id="r_ssp_serv_eu">0.00</td></tr>
         <tr><td>Gasolio Servito</td><td id="r_gas_serv_lt">0</td><td id="r_gas_serv_eu">0.00</td></tr>
         <tr><td>E-Diesel Servito</td><td id="r_edies_serv_lt">0</td><td id="r_edies_serv_eu">0.00</td></tr>
         <tr><td>GPL (Totale)</td><td id="r_gpl_lt">0</td><td id="r_gpl_eu">0.00</td></tr>
@@ -330,7 +330,6 @@
     }
 
     function calcola() {
-      // 1. Litri pompe
       const l_serv_gas = diff('p1_fin','p1_ini','lt_p1') + diff('p5_fin','p5_ini','lt_p5');
       const l_serv_edies = diff('p2_fin','p2_ini','lt_p2') + diff('p6_fin','p6_ini','lt_p6');
       const l_serv_ssp = diff('p3_fin','p3_ini','lt_p3') + diff('p7_fin','p7_ini','lt_p7');
@@ -345,7 +344,6 @@
       const l_gpl = diff('p21_fin','p21_ini','lt_p21') + diff('p22_fin','p22_ini','lt_p22');
       const l_adblue = diff('p23_fin','p23_ini','lt_p23');
 
-      // 2. Prezzi
       const ps_ssp = parseFloat(document.getElementById('p_ssp_self').value) || 0;
       const ps_gas = parseFloat(document.getElementById('p_gas_self').value) || 0;
       const ps_edies = parseFloat(document.getElementById('p_edies_self').value) || 0;
@@ -356,7 +354,6 @@
       const pv_edies = parseFloat(document.getElementById('p_edies_serv').value) || 0;
       const p_gpl_val = parseFloat(document.getElementById('p_gpl').value) || 0;
 
-      // 3. Calcoli Euro
       const eu_self_ssp = l_self_ssp * ps_ssp;
       const eu_self_gas = l_self_gas * ps_gas;
       const eu_self_edies = l_self_edies * ps_edies;
@@ -368,7 +365,6 @@
       const eu_gpl = l_gpl * p_gpl_val;
       const eu_adblue = l_adblue * p_adb;
 
-      // 4. Tabella riepilogo
       document.getElementById('r_ssp_self_lt').innerText = l_self_ssp;
       document.getElementById('r_ssp_self_eu').innerText = eu_self_ssp.toFixed(2);
       document.getElementById('r_gas_self_lt').innerText = l_self_gas;
@@ -394,7 +390,6 @@
       document.getElementById('tot_lt').innerText = tot_litri;
       document.getElementById('tot_eu').innerText = tot_euro_carb.toFixed(2);
 
-      // 5. Quadratura cassa
       const tcpos = parseFloat(document.getElementById('tcpos').value) || 0;
       const scatti = parseFloat(document.getElementById('scatti').value) || 0;
       const tot_dovuto = (tot_euro_carb - scatti) + tcpos;
