@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chiusura Turno - Piazzale & Cassa</title>
+  <style>
+    :root {
+      --bg: #121212;
+      --card: #1e1e1e;
+      --accent: #ff9800;
+      --text: #f0f0f0;
+      --green: #4caf50;
+      --red: #f44336;
+      --border: #333;
+    }
+    * { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); margin: 0; padding: 12px; }
+    h2, h3 { color: var(--accent); margin: 10px 0; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 12px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; }
+    label { font-size: 11px; text-transform: uppercase; color: #aaa; display: block; margin-bottom: 4px; }
+    input { width: 100%; background: #2a2a2a; border: 1px solid var(--border); border-radius: 6px; color: #fff; font-size: 16px; padding: 8px; }
+    input:focus { border-color: var(--accent); outline: none; }
+    .diff-badge { font-size: 13px; font-weight: bold; color: var(--green); margin-top: 4px; }
+    .box-quadratura { text-align: center; padding: 16px; border-radius: 8px; font-size: 18px; font-weight: bold; }
+    .ok { background: rgba(76, 175, 80, 0.2); border: 2px solid var(--green); color: var(--green); }
+    .ko { background: rgba(244, 67, 54, 0.2); border: 2px solid var(--red); color: var(--red); }
+    .btn { background: var(--accent); color: #000; border: none; font-weight: bold; padding: 12px; width: 100%; border-radius: 6px; cursor: pointer; margin-top: 8px; }
+  </style>
+</head>
+<body>
+
+  <!-- SEZIONE 1: PREZZI CARBURANTE -->
+  <div class="card">
+    <h3>1. Prezzi Carburante (€/L)</h3>
+    <div class="grid">
+      <div><label>SSP Self</label><input type="number" step="0.001" id="p_ssp_self" value="1.819" onchange="calcolaTutto()"></div>
+      <div><label>Gasolio Self</label><input type="number" step="0.001" id="p_gas_self" value="1.699" onchange="calcolaTutto()"></div>
+      <div><label>Supreme Self</label><input type="number" step="0.001" id="p_sup_self" value="1.899" onchange="calcolaTutto()"></div>
+      <div><label>GPL</label><input type="number" step="0.001" id="p_gpl" value="0.719" onchange="calcolaTutto()"></div>
+      <div><label>SSP Servito</label><input type="number" step="0.001" id="p_ssp_serv" value="2.019" onchange="calcolaTutto()"></div>
+      <div><label>Gasolio Servito</label><input type="number" step="0.001" id="p_gas_serv" value="1.899" onchange="calcolaTutto()"></div>
+    </div>
+  </div>
+
+  <!-- SEZIONE 2: ESEMPIO COLONNINE PIAZZALE -->
+  <div class="card">
+    <h3>2. Tamburelle Erogatori</h3>
+    <div class="grid">
+      <!-- Isola 1-2 Servito -->
+      <div>
+        <label>Erog. 1 (Gasolio Serv.)</label>
+        <input type="number" id="e1_fin" placeholder="Contatore Finale" oninput="calcolaTutto()">
+        <input type="hidden" id="e1_ini" value="2521808">
+        <div id="e1_diff" class="diff-badge">Litri: 0</div>
+      </div>
+      <!-- Isola 3-4 Self -->
+      <div>
+        <label>Erog. 3 (Gasolio Self)</label>
+        <input type="number" id="e3_fin" placeholder="Contatore Finale" oninput="calcolaTutto()">
+        <input type="hidden" id="e3_ini" value="7680701">
+        <div id="e3_diff" class="diff-badge">Litri: 0</div>
+      </div>
+      <!-- GPL -->
+      <div>
+        <label>GPL 1</label>
+        <input type="number" id="gpl1_fin" placeholder="Contatore Finale" oninput="calcolaTutto()">
+        <input type="hidden" id="gpl1_ini" value="8069006">
+        <div id="gpl1_diff" class="diff-badge">Litri: 0</div>
+      </div>
+    </div>
+    <div style="margin-top: 10px; font-size: 15px;">
+      <b>Totale Carburante:</b> <span id="tot_carburante_euro" style="color:var(--accent);">0.00</span> €
+      (<span id="tot_carburante_litri">0</span> Lt)
+    </div>
+  </div>
+
+  <!-- SEZIONE 3: MARKET TCPOS -->
+  <div class="card">
+    <h3>3. Market (Netto TCPOS)</h3>
+    <label>Incasso Battuto TCPOS (€)</label>
+    <input type="number" step="0.01" id="netto_tcpos" placeholder="Es. 200.00" oninput="calcolaTutto()">
+  </div>
+
+  <!-- SEZIONE 4: DISTINTA INCASSI -->
+  <div class="card">
+    <h3>4. Distinta Reale Chiusura</h3>
+    <div class="grid">
+      <div><label>Contanti / Banconote (€)</label><input type="number" step="0.01" id="cassa_contanti" oninput="calcolaTutto()"></div>
+      <div><label>Alleggerimenti Buste (€)</label><input type="number" step="0.01" id="cassa_buste" placeholder="Es. 500, 1000..." oninput="calcolaTutto()"></div>
+      <div><label>Totale Chiusure POS (€)</label><input type="number" step="0.01" id="cassa_pos" oninput="calcolaTutto()"></div>
+    </div>
+  </div>
+
+  <!-- SEZIONE 5: QUADRATURA FINALE -->
+  <div id="box_esito" class="card box-quadratura ok">
+    <div id="testo_esito">Tutto in pareggio: 0.00 €</div>
+    <div style="font-size: 12px; margin-top: 4px; font-weight: normal;" id="dettaglio_calcolo"></div>
+  </div>
+
+  <script>
+    function calcolaTutto() {
+      // 1. Lettura Tamburelle & Calcolo Litri
+      const e1_f = parseFloat(document.getElementById('e1_fin').value) || 2521808;
+      const e1_i = parseFloat(document.getElementById('e1_ini').value);
+      const lt_e1 = Math.max(0, e1_f - e1_i);
+      document.getElementById('e1_diff').innerText = `Litri: ${lt_e1}`;
+
+      const e3_f = parseFloat(document.getElementById('e3_fin').value) || 7680701;
+      const e3_i = parseFloat(document.getElementById('e3_ini').value);
+      const lt_e3 = Math.max(0, e3_f - e3_i);
+      document.getElementById('e3_diff').innerText = `Litri: ${lt_e3}`;
+
+      const gpl_f = parseFloat(document.getElementById('gpl1_fin').value) || 8069006;
+      const gpl_i = parseFloat(document.getElementById('gpl1_ini').value);
+      const lt_gpl = Math.max(0, gpl_f - gpl_i);
+      document.getElementById('gpl1_diff').innerText = `Litri: ${lt_gpl}`;
+
+      // 2. Prezzi
+      const p_gas_serv = parseFloat(document.getElementById('p_gas_serv').value) || 0;
+      const p_gas_self = parseFloat(document.getElementById('p_gas_self').value) || 0;
+      const p_gpl = parseFloat(document.getElementById('p_gpl').value) || 0;
+
+      // 3. Totale Carburante
+      const tot_litri = lt_e1 + lt_e3 + lt_gpl;
+      const tot_euro_carb = (lt_e1 * p_gas_serv) + (lt_e3 * p_gas_self) + (lt_gpl * p_gpl);
+
+      document.getElementById('tot_carburante_litri').innerText = tot_litri.toFixed(0);
+      document.getElementById('tot_carburante_euro').innerText = tot_euro_carb.toFixed(2);
+
+      // 4. Totale Dovuto (Carburante + Market TCPOS)
+      const market = parseFloat(document.getElementById('netto_tcpos').value) || 0;
+      const totale_dovuto = tot_euro_carb + market;
+
+      // 5. Totale Versato (Distinta)
+      const contanti = parseFloat(document.getElementById('cassa_contanti').value) || 0;
+      const buste = parseFloat(document.getElementById('cassa_buste').value) || 0;
+      const pos = parseFloat(document.getElementById('cassa_pos').value) || 0;
+      const totale_versato = contanti + buste + pos;
+
+      // 6. Quadratura
+      const sbilancio = totale_versato - totale_dovuto;
+      const box = document.getElementById('box_esito');
+      const testo = document.getElementById('testo_esito');
+      const dettaglio = document.getElementById('dettaglio_calcolo');
+
+      dettaglio.innerText = `Dovuto (Carburante + TCPOS): ${totale_dovuto.toFixed(2)} € | Versato: ${totale_versato.toFixed(2)} €`;
+
+      if (Math.abs(sbilancio) < 0.05) {
+        box.className = "card box-quadratura ok";
+        testo.innerText = "Cassa Quadrata Perfetta! (0.00 €)";
+      } else if (sbilancio > 0) {
+        box.className = "card box-quadratura ko";
+        testo.innerText = `Eccedenza Cassa: +${sbilancio.toFixed(2)} €`;
+      } else {
+        box.className = "card box-quadratura ko";
+        testo.innerText = `Ammanco Cassa: ${sbilancio.toFixed(2)} €`;
+      }
+    }
+  </script>
+</body>
+</html>
